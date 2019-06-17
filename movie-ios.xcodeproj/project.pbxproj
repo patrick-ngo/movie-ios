@@ -28,8 +28,8 @@
 		B97FA05D22B7E71A00EFDD53 /* UIView+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97FA05C22B7E71A00EFDD53 /* UIView+Gradient.swift */; };
 		B97FA05F22B7E76000EFDD53 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B97FA05E22B7E76000EFDD53 /* Localizable.strings */; };
 		B97FA06322B7ED0200EFDD53 /* MovieDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97FA06222B7ED0200EFDD53 /* MovieDetailHeaderView.swift */; };
+		B97FA06522B7F58800EFDD53 /* MovieDetailSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97FA06422B7F58800EFDD53 /* MovieDetailSectionHeaderView.swift */; };
 		B9B3830E22B7D77B00326BD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B3830D22B7D77B00326BD6 /* AppDelegate.swift */; };
-		B9B3831022B7D77B00326BD6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B3830F22B7D77B00326BD6 /* ViewController.swift */; };
 		B9B3831522B7D77D00326BD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9B3831422B7D77D00326BD6 /* Assets.xcassets */; };
 		B9B3831822B7D77D00326BD6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9B3831622B7D77D00326BD6 /* LaunchScreen.storyboard */; };
 		B9B3832322B7D77D00326BD6 /* movie_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B3832222B7D77D00326BD6 /* movie_iosTests.swift */; };
@@ -80,9 +80,9 @@
 		B97FA05C22B7E71A00EFDD53 /* UIView+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gradient.swift"; sourceTree = "<group>"; };
 		B97FA05E22B7E76000EFDD53 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		B97FA06222B7ED0200EFDD53 /* MovieDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailHeaderView.swift; sourceTree = "<group>"; };
+		B97FA06422B7F58800EFDD53 /* MovieDetailSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailSectionHeaderView.swift; sourceTree = "<group>"; };
 		B9B3830A22B7D77B00326BD6 /* movie-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "movie-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9B3830D22B7D77B00326BD6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B9B3830F22B7D77B00326BD6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B9B3831422B7D77D00326BD6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B9B3831722B7D77D00326BD6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B9B3831922B7D77D00326BD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -198,6 +198,7 @@
 				B97FA05022B7E2FF00EFDD53 /* MovieListingsCell.swift */,
 				B97FA05422B7E32C00EFDD53 /* TableViewLoadingCell.swift */,
 				B97FA06222B7ED0200EFDD53 /* MovieDetailHeaderView.swift */,
+				B97FA06422B7F58800EFDD53 /* MovieDetailSectionHeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -252,7 +253,6 @@
 				B97FA04422B7E13600EFDD53 /* Actions */,
 				B97FA03D22B7E0DD00EFDD53 /* Reducers */,
 				B97FA03622B7DEB000EFDD53 /* Models */,
-				B9B3830F22B7D77B00326BD6 /* ViewController.swift */,
 				B97FA04C22B7E29E00EFDD53 /* Extensions */,
 				B97FA04922B7E26400EFDD53 /* ViewControllers */,
 				B992ABAB22B7DB0B004CFF1E /* Support Files */,
@@ -533,13 +533,13 @@
 				B97FA03F22B7E0F400EFDD53 /* MainReducer.swift in Sources */,
 				B97FA05522B7E32C00EFDD53 /* TableViewLoadingCell.swift in Sources */,
 				B97FA04B22B7E27B00EFDD53 /* MovieListingsVC.swift in Sources */,
-				B9B3831022B7D77B00326BD6 /* ViewController.swift in Sources */,
 				B97FA04622B7E14500EFDD53 /* MovieDetailActions.swift in Sources */,
 				B97FA05822B7E38600EFDD53 /* Constants.swift in Sources */,
 				B97FA03A22B7DF5B00EFDD53 /* MovieModel.swift in Sources */,
 				B97FA03C22B7DFAA00EFDD53 /* GenreModel.swift in Sources */,
 				B97FA06322B7ED0200EFDD53 /* MovieDetailHeaderView.swift in Sources */,
 				B97FA05D22B7E71A00EFDD53 /* UIView+Gradient.swift in Sources */,
+				B97FA06522B7F58800EFDD53 /* MovieDetailSectionHeaderView.swift in Sources */,
 				B9B3830E22B7D77B00326BD6 /* AppDelegate.swift in Sources */,
 				B97FA05B22B7E6C200EFDD53 /* MovieDetailVC.swift in Sources */,
 				B97FA03522B7DE1400EFDD53 /* MoviesAPI.swift in Sources */,
