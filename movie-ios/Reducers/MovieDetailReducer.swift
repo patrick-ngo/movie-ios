@@ -10,6 +10,7 @@ import ReSwift
 
 struct MovieDetailState: Equatable {
     var selectedMovie: MovieModel?
+    var relatedMovies: [MovieModel]?
 }
 
 func movieDetailReducer(action: Action, state: MovieDetailState?) -> MovieDetailState {
@@ -19,6 +20,8 @@ func movieDetailReducer(action: Action, state: MovieDetailState?) -> MovieDetail
     switch action {
     case let action as SetSelectedMovie:
         state.selectedMovie = action.movie
+    case let action as SetRelatedMovies:
+        state.relatedMovies = action.relatedMovies
         
     default:
         break
