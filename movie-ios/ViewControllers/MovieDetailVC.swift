@@ -21,17 +21,15 @@ class MovieDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     typealias StoreSubscriberStateType = MovieDetailState
     
-    let disposeBag = DisposeBag()
-    
+    private var relatedMovieList: [MovieModel] = []
     private var selectedMovie: MovieModel? = nil {
         didSet {
             self.title = self.selectedMovie?.title
         }
     }
-    private var movieList: [MovieModel] = []
-    private var page = 0
-    private var isLoading =  false
-    private var hasNext = true
+    
+    let disposeBag = DisposeBag()
+
     
     //MARK: - Views -
     
@@ -55,7 +53,7 @@ class MovieDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         
         // Rx item selection
         tv.rx.itemSelected
-            .map { self.movieList[$0.row] }
+            .map { self.relatedMovieList[$0.row] }
             .bind(onNext: { (movie) in
                 // Update selected movie
                 mainStore.dispatch(SetSelectedMovie(movie: movie))
@@ -110,7 +108,7 @@ class MovieDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         }
         
         if let relatedMovies = state.relatedMovies {
-            self.movieList = relatedMovies
+            self.relatedMovieList = relatedMovies
             
             // Reload table with new movies
             self.tableView.reloadData()
@@ -122,7 +120,7 @@ class MovieDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case Section.related.rawValue:
-            return movieList.count
+            return relatedMovieList.count
         default:
             return 0
         }
@@ -137,7 +135,7 @@ class MovieDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         case Section.related.rawValue:
             // Get movie cell
             let movieCell = self.tableView.dequeueReusableCell(withIdentifier: String(describing: MovieListingsCell.self)) as? MovieListingsCell
-            let movie = movieList[indexPath.row]
+            let movie = relatedMovieList[indexPath.row]
             movieCell?.movie = movie
             return movieCell!
         default:
@@ -156,7 +154,7 @@ class MovieDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             headerView.movie = self.selectedMovie
             return headerView
         case Section.related.rawValue:
-            if movieList.count <= 0 {
+            if relatedMovieList.count <= 0 {
                 return UIView(frame: CGRect.zero)
             }
             let sectionheaderView = tableView.dequeueReusableHeaderFooterView(withIdentifier: String(describing:MovieDetailSectionHeaderView.self)) as! MovieDetailSectionHeaderView
