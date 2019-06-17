@@ -72,6 +72,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B992ABAB22B7DB0B004CFF1E /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B9B3830D22B7D77B00326BD6 /* AppDelegate.swift */,
+				B9B3831422B7D77D00326BD6 /* Assets.xcassets */,
+				B9B3831622B7D77D00326BD6 /* LaunchScreen.storyboard */,
+				B9B3831922B7D77D00326BD6 /* Info.plist */,
+			);
+			path = "Support Files";
+			sourceTree = "<group>";
+		};
 		B9B3830122B7D77B00326BD6 = {
 			isa = PBXGroup;
 			children = (
@@ -95,11 +106,8 @@
 		B9B3830C22B7D77B00326BD6 /* movie-ios */ = {
 			isa = PBXGroup;
 			children = (
-				B9B3830D22B7D77B00326BD6 /* AppDelegate.swift */,
 				B9B3830F22B7D77B00326BD6 /* ViewController.swift */,
-				B9B3831422B7D77D00326BD6 /* Assets.xcassets */,
-				B9B3831622B7D77D00326BD6 /* LaunchScreen.storyboard */,
-				B9B3831922B7D77D00326BD6 /* Info.plist */,
+				B992ABAB22B7DB0B004CFF1E /* Support Files */,
 			);
 			path = "movie-ios";
 			sourceTree = "<group>";
@@ -421,7 +429,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "movie-ios/Info.plist";
+				INFOPLIST_FILE = "movie-ios/Support Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -438,7 +446,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "movie-ios/Info.plist";
+				INFOPLIST_FILE = "movie-ios/Support Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
