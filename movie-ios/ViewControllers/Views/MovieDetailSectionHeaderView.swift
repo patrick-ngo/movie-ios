@@ -17,8 +17,7 @@ class MovieDetailSectionHeaderView: UITableViewHeaderFooterView {
         lbl.textColor = UIColor.Text.darkGrey
         lbl.textAlignment = .left
         lbl.numberOfLines = 1
-        lbl.text = "Related Movies"
-        
+        lbl.text = NSLocalizedString("LABEL_RELATED_MOVIES", comment: "Similar")
         return lbl
     }()
     
