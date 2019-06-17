@@ -48,7 +48,9 @@ class MovieListingsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                 // Update selected movie
                 mainStore.dispatch(SetSelectedMovie(movie: movie))
                 
-                // TODO: Go to movie detail
+                // Go to movie detail screen
+                let movieDetailVC = MovieDetailVC()
+                self.navigationController?.pushViewController(movieDetailVC, animated: true)
             })
             .disposed(by: disposeBag)
         
@@ -82,7 +84,7 @@ class MovieListingsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         navBar.tintColor = .black
         navBar.barTintColor = .white
         navBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
-        self.navigationItem.title = NSLocalizedString("Now Playing", comment: "Now Playing")
+        self.navigationItem.title = NSLocalizedString("TITLE_NOW_PLAYING", comment: "Now Playing")
     }
     
     func setupViews() {
