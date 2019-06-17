@@ -39,6 +39,13 @@ class MovieDetailVC: UIViewController, StoreSubscriber {
                 self.title = name
             }
             
+            if let date = movie.release_date {
+                // format: 2019-06-17
+                let index = date.index(date.startIndex, offsetBy: 4)
+                let yearSubstring = date[..<index]
+                self.yearLabel.text = String(yearSubstring)
+            }
+            
             // Synopsys
             if let overview = movie.overview {
                 self.synopsysLabel.text = overview
@@ -119,6 +126,14 @@ class MovieDetailVC: UIViewController, StoreSubscriber {
         return lbl
     }()
     
+    let yearLabel:UILabel = {
+        let lbl = UILabel()
+        lbl.text = ""
+        lbl.font = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.light)
+        lbl.textColor = UIColor.Text.darkGrey
+        return lbl
+    }()
+    
     let languageLabel:UILabel = {
         let lbl = UILabel()
         lbl.text = ""
@@ -151,9 +166,9 @@ class MovieDetailVC: UIViewController, StoreSubscriber {
         self.view.addSubview(self.scrollView)
         self.scrollView.addSubview(self.gradientView)
         self.scrollView.addSubview(self.posterImageView)
-        
         self.scrollView.addSubview(self.titleLabel)
         self.scrollView.addSubview(self.synopsysLabel)
+        self.scrollView.addSubview(self.yearLabel)
         self.scrollView.addSubview(self.genresLabel)
         self.scrollView.addSubview(self.languageLabel)
         self.scrollView.addSubview(self.runtimeLabel)
@@ -178,12 +193,17 @@ class MovieDetailVC: UIViewController, StoreSubscriber {
         }
         
         self.genresLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(self.titleLabel.snp.bottom).offset(10)
+            make.top.equalTo(self.titleLabel.snp.bottom).offset(4)
+            make.left.right.equalTo(15)
+        }
+        
+        self.yearLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(self.genresLabel.snp.bottom).offset(4)
             make.left.right.equalTo(15)
         }
         
         self.synopsysLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(self.genresLabel.snp.bottom).offset(10)
+            make.top.equalTo(self.yearLabel.snp.bottom).offset(10)
             make.centerX.equalToSuperview()
             make.left.right.equalTo(15)
         }
