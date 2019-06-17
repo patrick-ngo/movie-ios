@@ -6,6 +6,13 @@ target 'movie-ios' do
   use_frameworks!
 
   # Pods for movie-ios
+  pod 'Alamofire'
+  pod 'SDWebImage'
+  pod 'SnapKit'
+  pod 'ReSwift'
+  pod 'ReSwiftThunk'
+  pod 'RxSwift'
+  pod 'RxCocoa'
 
   target 'movie-iosTests' do
     inherit! :search_paths
