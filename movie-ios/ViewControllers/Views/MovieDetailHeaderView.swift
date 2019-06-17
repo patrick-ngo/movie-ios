@@ -11,6 +11,9 @@ import SnapKit
 
 class MovieDetailHeaderView : UITableViewHeaderFooterView {
     private let locale = NSLocale(localeIdentifier: NSLocale.current.languageCode!)
+    
+    //MARK: - Update data -
+    
     var movie: MovieModel? = nil {
         didSet {
             guard let movie = movie else { return }
@@ -67,7 +70,7 @@ class MovieDetailHeaderView : UITableViewHeaderFooterView {
     
     //MARK: - Views -
     
-    let scrollView : UIView = {
+    let containerView : UIView = {
         let sv = UIView()
         sv.backgroundColor = .white
         return sv
@@ -110,6 +113,7 @@ class MovieDetailHeaderView : UITableViewHeaderFooterView {
         lbl.text = ""
         lbl.font = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.light)
         lbl.textColor = UIColor.Text.darkGrey
+        lbl.numberOfLines = 0
         return lbl
     }()
     
@@ -145,18 +149,19 @@ class MovieDetailHeaderView : UITableViewHeaderFooterView {
     public override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier:reuseIdentifier)
         
-        self.contentView.addSubview(self.scrollView)
-        self.scrollView.addSubview(self.gradientView)
-        self.scrollView.addSubview(self.posterImageView)
-        self.scrollView.addSubview(self.titleLabel)
-        self.scrollView.addSubview(self.synopsysLabel)
-        self.scrollView.addSubview(self.yearLabel)
-        self.scrollView.addSubview(self.genresLabel)
-        self.scrollView.addSubview(self.languageLabel)
-        self.scrollView.addSubview(self.runtimeLabel)
+        self.contentView.addSubview(self.containerView)
+        self.containerView.addSubview(self.gradientView)
+        self.containerView.addSubview(self.posterImageView)
+        self.containerView.addSubview(self.titleLabel)
+        self.containerView.addSubview(self.synopsysLabel)
+        self.containerView.addSubview(self.yearLabel)
+        self.containerView.addSubview(self.genresLabel)
+        self.containerView.addSubview(self.languageLabel)
+        self.containerView.addSubview(self.runtimeLabel)
         
-        self.scrollView.snp.makeConstraints { (make) in
-            make.edges.equalTo(0)
+        self.containerView.snp.makeConstraints { (make) in
+            make.edges.equalTo(self.contentView)
+            
         }
         
         self.gradientView.snp.makeConstraints { (make) in
@@ -165,40 +170,45 @@ class MovieDetailHeaderView : UITableViewHeaderFooterView {
         }
         
         self.posterImageView.snp.makeConstraints { (make) in
-            make.centerX.equalTo(self.scrollView.snp.centerX)
+            make.centerX.equalTo(self.containerView.snp.centerX)
             make.top.equalTo(0)
             make.height.equalTo(300)
         }
         self.titleLabel.snp.makeConstraints { (make) in
             make.top.equalTo(self.posterImageView.snp.bottom).offset(10)
-            make.left.right.equalTo(15)
+            make.left.equalTo(15)
+            make.right.equalTo(-15)
         }
         
         self.genresLabel.snp.makeConstraints { (make) in
             make.top.equalTo(self.titleLabel.snp.bottom).offset(4)
-            make.left.right.equalTo(15)
+            make.left.equalTo(15)
+            make.right.equalTo(-15)
         }
         
         self.yearLabel.snp.makeConstraints { (make) in
             make.top.equalTo(self.genresLabel.snp.bottom).offset(4)
-            make.left.right.equalTo(15)
+            make.left.equalTo(15)
+            make.right.equalTo(-15)
         }
         
         self.synopsysLabel.snp.makeConstraints { (make) in
             make.top.equalTo(self.yearLabel.snp.bottom).offset(10)
-            make.centerX.equalToSuperview()
-            make.left.right.equalTo(15)
+            make.left.equalTo(15)
+            make.right.equalTo(-15)
         }
         
         self.languageLabel.snp.makeConstraints { (make) in
             make.top.equalTo(self.synopsysLabel.snp.bottom).offset(10)
-            make.left.right.equalTo(15)
+            make.left.equalTo(15)
+            make.right.equalTo(-15)
         }
         
         self.runtimeLabel.snp.makeConstraints { (make) in
             make.top.equalTo(self.languageLabel.snp.bottom).offset(10)
-            make.left.right.equalTo(15)
-            make.bottom.equalToSuperview().offset(-30)
+            make.left.equalTo(15)
+            make.right.equalTo(-15)
+            make.bottom.equalToSuperview().offset(-15)
         }
     }
 }
