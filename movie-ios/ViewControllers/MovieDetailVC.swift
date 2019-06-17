@@ -156,6 +156,9 @@ class MovieDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             headerView.movie = self.selectedMovie
             return headerView
         case Section.related.rawValue:
+            if movieList.count <= 0 {
+                return UIView(frame: CGRect.zero)
+            }
             let sectionheaderView = tableView.dequeueReusableHeaderFooterView(withIdentifier: String(describing:MovieDetailSectionHeaderView.self)) as! MovieDetailSectionHeaderView
             return sectionheaderView
         default:
